@@ -1,6 +1,6 @@
 {
   "name": "@shaxpir/sharedb-storage-node-sqlite",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Node.js SQLite storage adapter for ShareDB with better-sqlite3",
   "main": "index.js",
   "types": "index.d.ts",
@@ -33,6 +33,7 @@
     "@shaxpir/sharedb": ">=6.0.0"
   },
   "dependencies": {
+    "@shaxpir/sharedb-storage-sqlite": "^2.0.11",
     "better-sqlite3": "^12.2.0"
   },
   "devDependencies": {
