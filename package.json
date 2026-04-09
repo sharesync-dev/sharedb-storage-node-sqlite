@@ -1,5 +1,5 @@
 {
-  "name": "@shaxpir/sharedb-storage-node-sqlite",
+  "name": "@sharesync/sharedb-storage-node-sqlite",
   "version": "2.0.2",
   "description": "Node.js SQLite storage adapter for ShareDB with better-sqlite3",
   "main": "index.js",
@@ -16,24 +16,24 @@
     "collaborative",
     "operational-transform"
   ],
-  "author": "Benji Smith <benji@shaxpir.com>",
+  "author": "Benji Smith <benji@redthre.ad>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/shaxpir/sharedb-storage-node-sqlite.git"
+    "url": "git://github.com/sharesync-dev/sharedb-storage-node-sqlite.git"
   },
   "bugs": {
-    "url": "https://github.com/shaxpir/sharedb-storage-node-sqlite/issues"
+    "url": "https://github.com/sharesync-dev/sharedb-storage-node-sqlite/issues"
   },
-  "homepage": "https://github.com/shaxpir/sharedb-storage-node-sqlite#readme",
+  "homepage": "https://github.com/sharesync-dev/sharedb-storage-node-sqlite#readme",
   "engines": {
     "node": ">=14.0.0"
   },
   "peerDependencies": {
-    "@shaxpir/sharedb": ">=6.0.0"
+    "@sharesync/sharedb": ">=6.0.0"
   },
   "dependencies": {
-    "@shaxpir/sharedb-storage-sqlite": "^2.0.11",
+    "@sharesync/sharedb-storage-sqlite": "^2.0.11",
     "better-sqlite3": "^12.2.0"
   },
   "devDependencies": {
@@ -73,5 +73,8 @@
       "text",
       "lcov"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
