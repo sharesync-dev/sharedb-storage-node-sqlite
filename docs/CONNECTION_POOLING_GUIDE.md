@@ -32,7 +32,7 @@ npm install generic-pool
 ### Option 1: Using Built-in StandardSQLiteConnectionPool
 
 ```javascript
-const { ExpoSqliteStorage, StandardSQLiteConnectionPool } = require('@shaxpir/sharedb-storage-expo-sqlite');
+const { ExpoSqliteStorage, StandardSQLiteConnectionPool } = require('@sharesync/sharedb-storage-expo-sqlite');
 const { DatabaseServiceInit } = require('./DatabaseServiceInit');
 
 // Create connection pool

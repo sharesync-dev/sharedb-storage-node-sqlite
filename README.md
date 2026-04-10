@@ -1,10 +1,10 @@
-# @shaxpir/sharedb-storage-node-sqlite
+# @sharesync/sharedb-storage-node-sqlite
 
 Node.js SQLite storage adapter for [ShareDB](https://github.com/share/sharedb) using better-sqlite3.
 
 ## Overview
 
-This package provides a Node.js implementation of ShareDB's DurableStorage interface using SQLite. It builds on the shared `@shaxpir/sharedb-storage-sqlite` library and adds Node.js-specific adapters for better-sqlite3.
+This package provides a Node.js implementation of ShareDB's DurableStorage interface using SQLite. It builds on the shared `@sharesync/sharedb-storage-sqlite` library and adds Node.js-specific adapters for better-sqlite3.
 
 ## Features
 
@@ -19,11 +19,11 @@ This package provides a Node.js implementation of ShareDB's DurableStorage inter
 ## Installation
 
 ```bash
-npm install @shaxpir/sharedb-storage-node-sqlite
+npm install @sharesync/sharedb-storage-node-sqlite
 ```
 
 **Peer Dependencies**:
-- `@shaxpir/sharedb >= 6.0.0`
+- `@sharesync/sharedb >= 6.0.0`
 - `better-sqlite3 >= 8.0.0`
 
 ## Quick Start
@@ -31,7 +31,7 @@ npm install @shaxpir/sharedb-storage-node-sqlite
 ### Basic Usage
 
 ```javascript
-const SqliteStorage = require('@shaxpir/sharedb-storage-node-sqlite');
+const SqliteStorage = require('@sharesync/sharedb-storage-node-sqlite');
 const { BetterSqliteAdapter } = SqliteStorage;
 
 // Create adapter for your SQLite database
@@ -50,8 +50,8 @@ await storage.initialize();
 ### With ShareDB Connection
 
 ```javascript
-const { Connection } = require('@shaxpir/sharedb/lib/client');
-const SqliteStorage = require('@shaxpir/sharedb-storage-node-sqlite');
+const { Connection } = require('@sharesync/sharedb/lib/client');
+const SqliteStorage = require('@sharesync/sharedb-storage-node-sqlite');
 
 // Create storage
 const storage = new SqliteStorage({
@@ -155,6 +155,6 @@ MIT
 
 ## See Also
 
-- [@shaxpir/sharedb-storage-sqlite](https://www.npmjs.com/package/@shaxpir/sharedb-storage-sqlite) - Shared components
-- [@shaxpir/sharedb-storage-expo-sqlite](https://www.npmjs.com/package/@shaxpir/sharedb-storage-expo-sqlite) - React Native implementation
-- [@shaxpir/sharedb](https://github.com/shaxpir/sharedb) - ShareDB with DurableStore support
+- [@sharesync/sharedb-storage-sqlite](https://www.npmjs.com/package/@sharesync/sharedb-storage-sqlite) - Shared components
+- [@sharesync/sharedb-storage-expo-sqlite](https://www.npmjs.com/package/@sharesync/sharedb-storage-expo-sqlite) - React Native implementation
+- [@sharesync/sharedb](https://github.com/sharesync-dev/sharedb) - ShareDB with DurableStore support

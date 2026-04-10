@@ -1,9 +1,9 @@
 /**
- * @shaxpir/sharedb-storage-node-sqlite
+ * @sharesync/sharedb-storage-node-sqlite
  *
  * Standalone SQLite adapter for Node.js using better-sqlite3.
  * This package provides database adapters only - no storage strategies.
- * For ShareDB storage strategies, use @shaxpir/sharedb-storage-sqlite.
+ * For ShareDB storage strategies, use @sharesync/sharedb-storage-sqlite.
  */
 
 // Export the main adapter

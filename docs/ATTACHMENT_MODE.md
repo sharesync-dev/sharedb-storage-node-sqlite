@@ -27,7 +27,7 @@ This automatic process ensures indexes are properly created before attachment, a
 Base class that wraps any existing adapter and adds attachment functionality:
 
 ```javascript
-const AttachedSqliteAdapter = require('@shaxpir/sharedb-storage-node-sqlite/lib/adapters/attached-sqlite-adapter');
+const AttachedSqliteAdapter = require('@sharesync/sharedb-storage-node-sqlite/lib/adapters/attached-sqlite-adapter');
 ```
 
 ### AttachedBetterSqliteAdapter (Node.js)
@@ -35,7 +35,7 @@ const AttachedSqliteAdapter = require('@shaxpir/sharedb-storage-node-sqlite/lib/
 Node.js-specific implementation for use with better-sqlite3:
 
 ```javascript
-const AttachedBetterSqliteAdapter = require('@shaxpir/sharedb-storage-node-sqlite/lib/adapters/attached-better-sqlite-adapter');
+const AttachedBetterSqliteAdapter = require('@sharesync/sharedb-storage-node-sqlite/lib/adapters/attached-better-sqlite-adapter');
 
 // Create adapter with primary database and attachments
 const adapter = new AttachedBetterSqliteAdapter(
@@ -54,7 +54,7 @@ const adapter = new AttachedBetterSqliteAdapter(
 React Native implementation for use with expo-sqlite:
 
 ```javascript
-const AttachedExpoSqliteAdapter = require('@shaxpir/sharedb-storage-expo-sqlite/lib/adapters/attached-expo-sqlite-adapter');
+const AttachedExpoSqliteAdapter = require('@sharesync/sharedb-storage-expo-sqlite/lib/adapters/attached-expo-sqlite-adapter');
 
 // Create adapter with primary database and attachments
 const adapter = new AttachedExpoSqliteAdapter(
@@ -89,7 +89,7 @@ const adapter = AttachedExpoSqliteAdapter.createWithDocumentDirectory(
 Schema strategy that works with attached databases by prefixing all table operations:
 
 ```javascript
-const AttachedCollectionPerTableStrategy = require('@shaxpir/sharedb-storage-node-sqlite/lib/schema/attached-collection-per-table-strategy');
+const AttachedCollectionPerTableStrategy = require('@sharesync/sharedb-storage-node-sqlite/lib/schema/attached-collection-per-table-strategy');
 
 const strategy = new AttachedCollectionPerTableStrategy({
   attachmentAlias: 'sharedb', // Must match the alias used in adapter
@@ -109,7 +109,7 @@ const strategy = new AttachedCollectionPerTableStrategy({
 Helper utilities to ensure your ShareDB database has proper schema and indexes before attachment:
 
 ```javascript
-const { initializeShareDBDatabase, verifyShareDBDatabase } = require('@shaxpir/sharedb-storage-node-sqlite/lib/utils/sharedb-initializer');
+const { initializeShareDBDatabase, verifyShareDBDatabase } = require('@sharesync/sharedb-storage-node-sqlite/lib/utils/sharedb-initializer');
 ```
 
 ## Complete Example with Proper Initialization
@@ -117,11 +117,11 @@ const { initializeShareDBDatabase, verifyShareDBDatabase } = require('@shaxpir/s
 ### Node.js (with better-sqlite3)
 
 ```javascript
-const BetterSqliteAdapter = require('@shaxpir/sharedb-storage-node-sqlite/lib/adapters/better-sqlite-adapter');
-const AttachedBetterSqliteAdapter = require('@shaxpir/sharedb-storage-node-sqlite/lib/adapters/attached-better-sqlite-adapter');
-const AttachedCollectionPerTableStrategy = require('@shaxpir/sharedb-storage-node-sqlite/lib/schema/attached-collection-per-table-strategy');
-const SqliteStorage = require('@shaxpir/sharedb-storage-node-sqlite');
-const { initializeShareDBDatabase, verifyShareDBDatabase } = require('@shaxpir/sharedb-storage-node-sqlite/lib/utils/sharedb-initializer');
+const BetterSqliteAdapter = require('@sharesync/sharedb-storage-node-sqlite/lib/adapters/better-sqlite-adapter');
+const AttachedBetterSqliteAdapter = require('@sharesync/sharedb-storage-node-sqlite/lib/adapters/attached-better-sqlite-adapter');
+const AttachedCollectionPerTableStrategy = require('@sharesync/sharedb-storage-node-sqlite/lib/schema/attached-collection-per-table-strategy');
+const SqliteStorage = require('@sharesync/sharedb-storage-node-sqlite');
+const { initializeShareDBDatabase, verifyShareDBDatabase } = require('@sharesync/sharedb-storage-node-sqlite/lib/utils/sharedb-initializer');
 
 // Step 1: Initialize the ShareDB database with indexes (one-time setup)
 async function setupShareDBDatabase() {
@@ -233,9 +233,9 @@ async function useAttachedDatabase() {
 ### React Native (with expo-sqlite)
 
 ```javascript
-const AttachedExpoSqliteAdapter = require('@shaxpir/sharedb-storage-expo-sqlite/lib/adapters/attached-expo-sqlite-adapter');
-const AttachedCollectionPerTableStrategy = require('@shaxpir/sharedb-storage-expo-sqlite/lib/schema/attached-collection-per-table-strategy');
-const SqliteStorage = require('@shaxpir/sharedb-storage-expo-sqlite');
+const AttachedExpoSqliteAdapter = require('@sharesync/sharedb-storage-expo-sqlite/lib/adapters/attached-expo-sqlite-adapter');
+const AttachedCollectionPerTableStrategy = require('@sharesync/sharedb-storage-expo-sqlite/lib/schema/attached-collection-per-table-strategy');
+const SqliteStorage = require('@sharesync/sharedb-storage-expo-sqlite');
 
 // Create the attached adapter using document directory
 const adapter = AttachedExpoSqliteAdapter.createWithDocumentDirectory(

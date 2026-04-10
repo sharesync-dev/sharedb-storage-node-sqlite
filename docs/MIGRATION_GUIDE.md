@@ -1,46 +1,46 @@
-# Migration Guide: From Core ShareDB to @shaxpir/sharedb-storage-expo-sqlite
+# Migration Guide: From Core ShareDB to @sharesync/sharedb-storage-expo-sqlite
 
-This guide helps you migrate from using React Native SQLite storage in the Shaxpir ShareDB fork to the dedicated `@shaxpir/sharedb-storage-expo-sqlite` package for DurableStore integration.
+This guide helps you migrate from using React Native SQLite storage in the ShareSync ShareDB fork to the dedicated `@sharesync/sharedb-storage-expo-sqlite` package for DurableStore integration.
 
 ## Why Migrate?
 
-The React Native storage functionality has been extracted from [@shaxpir/sharedb](https://github.com/shaxpir/sharedb) into this dedicated package to:
+The React Native storage functionality has been extracted from [@sharesync/sharedb](https://github.com/sharesync-dev/sharedb) into this dedicated package to:
 
 - ✅ **Eliminate Bundling Issues**: No React Native dependencies in browser/Node.js apps
 - ✅ **Cleaner Architecture**: Focused, single-responsibility packages
 - ✅ **Independent Evolution**: React Native features can evolve separately
 - ✅ **Better Developer Experience**: Clear separation between environments
 
-The Shaxpir ShareDB fork remains your main dependency for all ShareDB and DurableStore functionality - this package simply provides the React Native storage layer for the DurableStore system.
+The ShareSync ShareDB fork remains your main dependency for all ShareDB and DurableStore functionality - this package simply provides the React Native storage layer for the DurableStore system.
 
 ## Migration Steps
 
 ### Step 1: Install New Package
 
 ```bash
-npm install @shaxpir/sharedb-storage-expo-sqlite
+npm install @sharesync/sharedb-storage-expo-sqlite
 ```
 
-**Note**: The core `@shaxpir/sharedb` package remains unchanged and is still required.
+**Note**: The core `@sharesync/sharedb` package remains unchanged and is still required.
 
 ### Step 2: Update Import Statement
 
 **Before:**
 ```typescript
-import { Connection } from '@shaxpir/sharedb/lib/client';
-import { ExpoSqliteStorage } from '@shaxpir/sharedb';  // ❌ No longer available
+import { Connection } from '@sharesync/sharedb/lib/client';
+import { ExpoSqliteStorage } from '@sharesync/sharedb';  // ❌ No longer available
 ```
 
 **After:**
 ```typescript
-import { Connection } from '@shaxpir/sharedb/lib/client';          // ShareDB client
-import { ExpoSqliteStorage } from '@shaxpir/sharedb-storage-expo-sqlite'; // React Native storage
+import { Connection } from '@sharesync/sharedb/lib/client';          // ShareDB client
+import { ExpoSqliteStorage } from '@sharesync/sharedb-storage-expo-sqlite'; // React Native storage
 ```
 
 ### Step 3: Verify Dependencies
 
 **Required Dependencies:**
-- `@shaxpir/sharedb` (peer dependency)
+- `@sharesync/sharedb` (peer dependency)
 - `expo-sqlite` (peer dependency - already in your React Native project)
 
 **New Direct Dependency:**
@@ -53,13 +53,13 @@ import { ExpoSqliteStorage } from '@shaxpir/sharedb-storage-expo-sqlite'; // Rea
 **Before:**
 ```typescript
 // DatabaseService.ts or wherever you initialize ShareDB storage
-import { ExpoSqliteStorage } from '@shaxpir/sharedb';
+import { ExpoSqliteStorage } from '@sharesync/sharedb';
 ```
 
 **After:**
 ```typescript
 // DatabaseService.ts or wherever you initialize ShareDB storage  
-import { ExpoSqliteStorage } from '@shaxpir/sharedb-storage-expo-sqlite';
+import { ExpoSqliteStorage } from '@sharesync/sharedb-storage-expo-sqlite';
 ```
 
 **That's it!** All your configuration and usage patterns remain exactly the same.
@@ -68,12 +68,12 @@ import { ExpoSqliteStorage } from '@shaxpir/sharedb-storage-expo-sqlite';
 
 **Before:**
 ```typescript
-import { StandardSQLiteConnectionPool } from '@shaxpir/sharedb';
+import { StandardSQLiteConnectionPool } from '@sharesync/sharedb';
 ```
 
 **After:**
 ```typescript
-import { ExpoSqliteStorage, StandardSQLiteConnectionPool } from '@shaxpir/sharedb-storage-expo-sqlite';
+import { ExpoSqliteStorage, StandardSQLiteConnectionPool } from '@sharesync/sharedb-storage-expo-sqlite';
 ```
 
 ## No Functionality Changes
@@ -99,8 +99,8 @@ import { ExpoSqliteStorage, StandardSQLiteConnectionPool } from '@shaxpir/shared
 
 **Before (core ShareDB):**
 ```typescript
-import ShareDB from '@shaxpir/sharedb';
-import { ExpoSqliteStorage } from '@shaxpir/sharedb';  // Bundling issues!
+import ShareDB from '@sharesync/sharedb';
+import { ExpoSqliteStorage } from '@sharesync/sharedb';  // Bundling issues!
 import { DatabaseServiceInit } from './DatabaseServiceInit';
 import { dbConnectionPool } from './DatabaseConnectionPool';
 
@@ -118,8 +118,8 @@ connection.useDurableStore({ storage });
 
 **After (dedicated package):**
 ```typescript
-import ShareDB from '@shaxpir/sharedb';                           // Core unchanged
-import { ExpoSqliteStorage } from '@shaxpir/sharedb-storage-expo-sqlite'; // Dedicated package
+import ShareDB from '@sharesync/sharedb';                           // Core unchanged
+import { ExpoSqliteStorage } from '@sharesync/sharedb-storage-expo-sqlite'; // Dedicated package
 import { DatabaseServiceInit } from './DatabaseServiceInit';
 import { dbConnectionPool } from './DatabaseConnectionPool';
 
@@ -151,9 +151,9 @@ connection.useDurableStore({ storage });
 
 If you encounter any issues, you can temporarily rollback:
 
-1. **Uninstall new package**: `npm uninstall @shaxpir/sharedb-storage-expo-sqlite`
-2. **Revert import**: Change back to `import { ExpoSqliteStorage } from '@shaxpir/sharedb'`
-3. **File an issue**: Report the problem at [GitHub Issues](https://github.com/shaxpir/sharedb-storage-expo-sqlite/issues)
+1. **Uninstall new package**: `npm uninstall @sharesync/sharedb-storage-expo-sqlite`
+2. **Revert import**: Change back to `import { ExpoSqliteStorage } from '@sharesync/sharedb'`
+3. **File an issue**: Report the problem at [GitHub Issues](https://github.com/sharesync-dev/sharedb-storage-expo-sqlite/issues)
 
 ## Validation Checklist
 
@@ -170,22 +170,22 @@ After migration, verify:
 
 ### "Cannot resolve module" Error
 
-**Error**: `Unable to resolve module '@shaxpir/sharedb-storage-expo-sqlite'`
+**Error**: `Unable to resolve module '@sharesync/sharedb-storage-expo-sqlite'`
 
 **Solution**: Ensure package is installed:
 ```bash
-npm install @shaxpir/sharedb-storage-expo-sqlite
+npm install @sharesync/sharedb-storage-expo-sqlite
 # or
-yarn add @shaxpir/sharedb-storage-expo-sqlite
+yarn add @sharesync/sharedb-storage-expo-sqlite
 ```
 
 ### Peer Dependency Warnings
 
-**Warning**: `peer dep missing @shaxpir/sharedb`
+**Warning**: `peer dep missing @sharesync/sharedb`
 
 **Solution**: Ensure you have the core ShareDB package:
 ```bash
-npm install @shaxpir/sharedb
+npm install @sharesync/sharedb
 ```
 
 ### TypeScript Errors
@@ -206,10 +206,10 @@ npm install
 **Solution**: Check import syntax:
 ```typescript
 // ✅ Correct
-import { ExpoSqliteStorage } from '@shaxpir/sharedb-storage-expo-sqlite';
+import { ExpoSqliteStorage } from '@sharesync/sharedb-storage-expo-sqlite';
 
 // ❌ Incorrect  
-import ExpoSqliteStorage from '@shaxpir/sharedb-storage-expo-sqlite';
+import ExpoSqliteStorage from '@sharesync/sharedb-storage-expo-sqlite';
 ```
 
 ## Support
@@ -218,7 +218,7 @@ If you encounter any issues during migration:
 
 1. **Check this guide** for common solutions
 2. **Review example code** in the test files
-3. **File an issue** at [GitHub Issues](https://github.com/shaxpir/sharedb-storage-expo-sqlite/issues)
+3. **File an issue** at [GitHub Issues](https://github.com/sharesync-dev/sharedb-storage-expo-sqlite/issues)
 4. **Include details**: Error messages, code snippets, environment info
 
 The migration should be seamless - if it's not, we want to know!

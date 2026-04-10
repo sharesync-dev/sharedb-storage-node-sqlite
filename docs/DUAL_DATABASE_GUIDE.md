@@ -35,7 +35,7 @@ const db = await DatabaseServiceInit.init(); // Creates dual-DB connection
 ### 2. ShareDB Storage Setup
 
 ```typescript
-import { ExpoSqliteStorage } from '@shaxpir/sharedb-storage-expo-sqlite';
+import { ExpoSqliteStorage } from '@sharesync/sharedb-storage-expo-sqlite';
 
 // Option 1: Use schema prefix (simplest)
 const storage = new ExpoSqliteStorage({

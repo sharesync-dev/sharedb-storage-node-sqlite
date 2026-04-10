@@ -14,7 +14,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture Overview
 
-This package provides **React Native SQLite storage** for the **DurableStore** system in [@shaxpir/sharedb](https://github.com/shaxpir/sharedb). It was extracted from the core ShareDB package to eliminate bundling conflicts in browser/Node.js environments.
+This package provides **React Native SQLite storage** for the **DurableStore** system in [@sharesync/sharedb](https://github.com/sharesync-dev/sharedb). It was extracted from the core ShareDB package to eliminate bundling conflicts in browser/Node.js environments.
 
 ### Core Components
 
@@ -52,7 +52,7 @@ This package provides **React Native SQLite storage** for the **DurableStore** s
 ### Dependencies
 
 **Peer Dependencies** (required):
-- `@shaxpir/sharedb >= 5.4.0` - Shaxpir fork with DurableStore support
+- `@sharesync/sharedb >= 5.4.0` - ShareSync fork with DurableStore support
 - `expo-sqlite >= 14.0.0` - React Native SQLite implementation
 
 **Direct Dependencies**:
@@ -89,7 +89,7 @@ const pool = new StandardSQLiteConnectionPool({
 
 - **React Native Only**: This package is specifically for React Native/Expo environments
 - **DurableStore Focus**: All functionality is designed around DurableStore integration
-- **Peer Dependency**: Requires `@shaxpir/sharedb` (enhanced fork, not upstream ShareDB)
+- **Peer Dependency**: Requires `@sharesync/sharedb` (enhanced fork, not upstream ShareDB)
 - **Testing**: Uses Mocha with Sinon for mocking SQLite operations
 - **ES3 Compatibility**: Maintains compatibility with ShareDB's ES3 syntax requirements
 
@@ -102,6 +102,6 @@ const pool = new StandardSQLiteConnectionPool({
 
 ### Related Projects
 
-- **[@shaxpir/sharedb](https://github.com/shaxpir/sharedb)** - Enhanced ShareDB fork with DurableStore (required peer dependency)
+- **[@sharesync/sharedb](https://github.com/sharesync-dev/sharedb)** - Enhanced ShareDB fork with DurableStore (required peer dependency)
 - **[Original ShareDB](https://github.com/share/sharedb)** - Upstream project (without DurableStore)
-- **[DurableStore Guide](https://github.com/shaxpir/sharedb/blob/pluggable-store/DURABLE_STORE_GUIDE.md)** - Comprehensive offline-first documentation
+- **[DurableStore Guide](https://github.com/sharesync-dev/sharedb/blob/pluggable-store/DURABLE_STORE_GUIDE.md)** - Comprehensive offline-first documentation

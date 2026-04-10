@@ -1,5 +1,5 @@
 /**
- * @shaxpir/sharedb-storage-node-sqlite
+ * @sharesync/sharedb-storage-node-sqlite
  *
  * TypeScript definitions for Node.js SQLite adapters using better-sqlite3.
  * This is a standalone package providing database adapters only.

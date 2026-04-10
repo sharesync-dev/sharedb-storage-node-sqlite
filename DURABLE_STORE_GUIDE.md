@@ -13,14 +13,14 @@ For React Native applications, we use the ExpoSqliteStorage implementation, whic
 First, ensure you have the required dependencies in your React Native project:
 
 ```bash
-npm install expo-sqlite @shaxpir/sharedb @shaxpir/sharedb-storage-expo-sqlite
+npm install expo-sqlite @sharesync/sharedb @sharesync/sharedb-storage-expo-sqlite
 ```
 
 ```javascript
-import { ExpoSqliteStorage } from '@shaxpir/sharedb-storage-expo-sqlite';
+import { ExpoSqliteStorage } from '@sharesync/sharedb-storage-expo-sqlite';
 ```
 
-**Note**: ExpoSqliteStorage is only available in the dedicated `@shaxpir/sharedb-storage-expo-sqlite` package. It was moved out of the main ShareDB package to avoid bundling conflicts and provide better React Native architecture.
+**Note**: ExpoSqliteStorage is only available in the dedicated `@sharesync/sharedb-storage-expo-sqlite` package. It was moved out of the main ShareDB package to avoid bundling conflicts and provide better React Native architecture.
 
 ## Defining Your Data Schema
 
@@ -180,7 +180,7 @@ import {
   SqliteStorage,
   CollectionPerTableStrategy,
   ShareDBStorage // Clean type import
-} from '@shaxpir/sharedb-storage-expo-sqlite';
+} from '@sharesync/sharedb-storage-expo-sqlite';
 import { EncryptionManager } from '../utils/encryption';
 import { COLLECTION_CONFIG } from '../schema/socialMediaSchema';
 
@@ -247,8 +247,8 @@ Once you have your storage implementation, you need to integrate it with ShareDB
 
 ```javascript
 // services/ShareDBService.js
-import ShareDB from '@shaxpir/sharedb/lib/client';
-import DurableStore from '@shaxpir/sharedb/lib/client/durable-store';
+import ShareDB from '@sharesync/sharedb/lib/client';
+import DurableStore from '@sharesync/sharedb/lib/client/durable-store';
 import { createSocialMediaStorage } from '../storage/createSocialMediaStorage';
 
 export class ShareDBService {
