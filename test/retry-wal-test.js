@@ -110,6 +110,27 @@ describe('WAL Mode and Retry Logic', function() {
         expect(shouldRetry(undefined)).to.be.false;
         expect(shouldRetry({})).to.be.false;
       });
+
+      it('should return true when lock error is on error.cause', function() {
+        const wrapped = new Error("Calling the 'finalizeAsync' function has failed");
+        wrapped.cause = new Error('Error code 5: database is locked');
+        expect(shouldRetry(wrapped)).to.be.true;
+      });
+
+      it('should walk nested cause chains', function() {
+        const inner = new Error('SQLITE_BUSY: database is locked');
+        const middle = new Error('intermediate'); middle.cause = inner;
+        const outer = new Error('outer'); outer.cause = middle;
+        expect(shouldRetry(outer)).to.be.true;
+      });
+
+      it('should not loop forever on circular cause chains', function() {
+        const a = new Error('a');
+        const b = new Error('b');
+        a.cause = b;
+        b.cause = a;
+        expect(shouldRetry(a)).to.be.false;
+      });
     });
 
     describe('retryWithBackoff', function() {
