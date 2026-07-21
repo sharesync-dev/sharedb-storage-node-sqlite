@@ -33,7 +33,7 @@
     "@sharesync/sharedb": "^6.3.0"
   },
   "dependencies": {
-    "@sharesync/sharedb-storage-sqlite": "^2.2.0",
+    "@sharesync/sharedb-storage-sqlite": "^2.3.0",
     "better-sqlite3": "^12.2.0"
   },
   "devDependencies": {
